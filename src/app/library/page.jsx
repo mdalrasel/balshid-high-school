@@ -140,15 +140,15 @@ const allBooks = [
 
 const LibraryPage = () => {
     return (
-        <section className="bg-white dark:bg-gray-900 py-10 px-4">
-            <div className="container mx-auto">
+        <section className=" py-10 px-4">
+            <div className="">
                 <div className="flex flex-col lg:flex-row gap-8">
                     {/* Left side: Book Cards */}
                     <div className="w-full lg:w-3/4">
-                        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">আমাদের ই-লাইব্রেরি</h2>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+                        <h2 className="text-3xl font-bold  mb-6">আমাদের লাইব্রেরি</h2>
+                        <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {allBooks.map(book => (
-                                <Link key={book.id} href={`/library/${book.id}`} className="block transform transition-transform duration-300 hover:scale-105 rounded-xl shadow-lg overflow-hidden cursor-pointer">
+                                <Link key={book.id} href={`/library/${book.id}`} className="block transform transition-transform duration-300 hover:scale-105 rounded-xl shadow-lg overflow-hidden cursor-pointer border border-gray-800">
                                     <div className="w-full h-48 sm:h-64 md:h-72 relative">
                                         <Image
                                             src={book.image}
@@ -168,8 +168,8 @@ const LibraryPage = () => {
 
                     {/* Right side: Search and other options */}
                     <div className="w-full lg:w-1/4">
-                        <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow-md mb-6">
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">বই অনুসন্ধান</h3>
+                        <div className=" rounded-xl p-6 shadow-md mb-6">
+                            <h3 className="text-xl font-bold  mb-4">বই অনুসন্ধান</h3>
                             <input type="text" placeholder="বইয়ের নাম" className="input input-bordered w-full mb-2" />
                             <select className="select select-bordered w-full mb-2" defaultValue="শ্রেণি নির্বাচন">
                                 <option disabled value="শ্রেণি নির্বাচন">শ্রেণি নির্বাচন</option>
@@ -182,11 +182,11 @@ const LibraryPage = () => {
                             <button className="btn btn-primary w-full">অনুসন্ধান</button>
                         </div>
 
-                        <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow-md">
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">র‍্যান্ডম বই</h3>
+                        <div className=" rounded-xl p-6 shadow-md">
+                            <h3 className="text-xl font-bold  mb-4">অন্যান্য বই</h3>
                             <ul className="space-y-2">
                                 {allBooks.slice(0, 5).map(book => (
-                                    <li key={book.id} className="text-gray-700 dark:text-gray-300">
+                                    <li key={book.id} className="">
                                         <Link href={`/library/${book.id}`} className="hover:text-blue-500 transition-colors duration-200">
                                             {book.title} ({book.className})
                                         </Link>

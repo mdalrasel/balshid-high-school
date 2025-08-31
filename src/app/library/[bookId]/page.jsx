@@ -229,11 +229,11 @@ export default function BookDetailsPage({ params }) {
                             <button className="btn btn-primary w-full">অনুসন্ধান</button>
                         </div>
 
-                        <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow-md w-full">
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">র‍্যান্ডম বই</h3>
+                        <div className=" rounded-xl p-6 shadow-md w-full">
+                            <h3 className="text-xl font-bold  mb-4">অন্যান্য বই</h3>
                             <div className="grid grid-cols-2 gap-4">
                                 {randomBooks.map(randomBook => (
-                                    <Link key={randomBook.id} href={`/library/${randomBook.id}`} className="block transform transition-transform duration-300 hover:scale-105 rounded-xl shadow-lg overflow-hidden cursor-pointer">
+                                    <Link key={randomBook.id} href={`/library/${randomBook.id}`} className="block transform transition-transform duration-300 hover:scale-105 rounded-xl shadow-lg overflow-hidden cursor-pointer border border-gray-900">
                                         <div className="w-full h-32 relative">
                                             <Image src={randomBook.image} alt={randomBook.title} fill className="object-cover" />
                                         </div>

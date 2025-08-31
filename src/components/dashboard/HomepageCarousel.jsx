@@ -10,10 +10,10 @@ const HomepageCarousel = () => {
     
     
     const carouselImages = [
-        "https://scontent.fcla7-1.fna.fbcdn.net/v/t39.30808-6/502587142_9931523800260626_7012699636374275548_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=cf85f3&_nc_eui2=AeGoCzKN1cOix9cD15yO7-CBiIMXpw63YciIgxenDrdhyJJrW1q6ncWbfd9UnUa0GGd8QwPyRa0mUY07P2EGr43C&_nc_ohc=hsNKLZrBfz4Q7kNvwEK-O6U&_nc_oc=Adkh73ZB0Qc6Hfe7ez365iPR99V86bqHBjGtQWnrmlyNht2YFdnt0upsEr2qFKq5tyU&_nc_zt=23&_nc_ht=scontent.fcla7-1.fna&_nc_gid=9ZAfnfjXW224vTME586dwA&oh=00_AfSFm00nEe83aRPZMVsa1q8odIUMA4GOJNKq02ibsxdaeA&oe=68942EE7",
-        "https://scontent.fcla7-1.fna.fbcdn.net/v/t39.30808-6/502729673_9931523960260610_2589370528712807362_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeGp9AkThHuJQWzts8cwtDRYmkcPJp8tx1eaRw8mny3HV2_clEllYKDl5wC_9mMx2VSAO1VgkIlbvW7CIlSDiemx&_nc_ohc=8XWIlaKe7_sQ7kNvwHJ4Ble&_nc_oc=AdmKRDmfQ6YbLPvfaeYL6QhpJF7Z7rrc2oLh_gWraEDCnEe7lAqdwSMRnTOkNeILXSs&_nc_zt=23&_nc_ht=scontent.fcla7-1.fna&_nc_gid=1i8Hxap4yMv5TNEHhjEXHA&oh=00_AfTcgcs_4URxtqqwYwtjiIDxvdNKj1jpYy4QE0G9zyzUIQ&oe=6894263B",
-        "https://placehold.co/1200x600/003C43/FFFFFF?text=School+Event",
-        "https://placehold.co/1200x600/E3FEF7/000000?text=Classroom"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsYOwKHHqtBOvrwOy2e1kowJXM8tBilz-J5g&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnCloAknz_ak-J6n6NxcKctIh79HkBdjvhew&s",
+        "https://bknghs.edu.bd/wp-content/uploads/2022/05/61dfc3e8c79c6641948428.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRAKrL-Fn5OhzzPnmQHTc-3jd8RF391yDIPg&s"
     ];
 
     const AboutSection = ({ title, imgText, content, fullContent, uniqueId }) => {

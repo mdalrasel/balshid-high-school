@@ -1,19 +1,23 @@
-// components/Navbar.jsx
 'use client';
 
 import Link from 'next/link';
 import ThemeToggle from '../ThemeToggle';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useAuth } from '../../contexts/AuthContext';
+import { useRouter } from 'next/navigation';
 
 // Import necessary icons from react-icons/md
-import { MdMenu, MdHome, MdNotifications, MdCreate, MdVideoLibrary, MdDashboard, MdPhotoLibrary, MdContacts, MdBarChart, MdLocalLibrary } from "react-icons/md";
+import { MdMenu, MdHome, MdNotifications, MdCreate, MdVideoLibrary, MdDashboard, MdPhotoLibrary, MdContacts, MdBarChart, MdLocalLibrary, MdLogin, MdLogout, MdPerson } from "react-icons/md";
 
 // Assuming you have these image paths correct
 import ProfilePic from '../../app/assists/Profile.png';
 import Banner1 from '../../app/assists/balshid high school banner.jpeg';
 
 const Navbar = () => {
+    const { user, loading, logout } = useAuth();
+    const router = useRouter();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     // Define all navigation links with icons and paths
     const navLinks = [
@@ -23,8 +27,17 @@ const Navbar = () => {
         { name: 'লাইব্রেরি', path: '/library', icon: <MdLocalLibrary size={20} /> },
         { name: 'যোগাযোগ', path: '/contact', icon: <MdContacts size={20} /> },
         { name: 'বোর্ড রেজাল্ট', path: '/board-result', icon: <MdBarChart size={20} /> },
-        { name: 'ড্যাশবোর্ড', path: '/dashboard', icon: <MdDashboard size={20} /> },
     ];
+
+    // Handle logout action
+    const handleLogout = () => {
+        logout();
+        router.push('/');
+    };
+
+    if (loading) {
+        return null; // Or a loading spinner
+    }
 
     return (
         <>
@@ -54,17 +67,56 @@ const Navbar = () => {
                                     </Link>
                                 </li>
                             ))}
+                            {user && (
+                                <li>
+                                    <Link href="/dashboard" className="flex items-center gap-2 px-2 py-1 hover:text-blue-500 transition-colors duration-300">
+                                        <MdDashboard size={20} />
+                                        ড্যাশবোর্ড
+                                    </Link>
+                                </li>
+                            )}
                         </ul>
                     </div>
 
                     {/* Navbar End Section */}
                     <div className="navbar-end gap-4">
                         <ThemeToggle />
-                        <Link href="/login" className="btn btn-primary">লগইন</Link>
+                        {!user ? (
+                            <Link href="/login" className="btn btn-primary hidden lg:flex">লগইন</Link>
+                        ) : (
+                            <div className="dropdown dropdown-end">
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        {/* Replace with actual user profile image */}
+                                        <Image src={ProfilePic} alt="User Profile" width={40} height={40} />
+                                    </div>
+                                </label>
+                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                                    <li>
+                                        <p className="justify-between text-gray-700 dark:text-gray-200">
+                                            {user.name}
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <Link href="/dashboard/profile" className="flex items-center gap-2 text-gray-700 dark:text-gray-200">
+                                            <MdPerson size={20} />
+                                            প্রোফাইল আপডেট
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <button onClick={handleLogout} className="flex items-center gap-2 text-gray-700 dark:text-gray-200">
+                                            <MdLogout size={20} />
+                                            লগআউট
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        )}
+                       
 
                         {/* Mobile Dropdown Menu */}
-                        <div className="dropdown dropdown-left">
-                            <div tabIndex={0} role="button" className="cursor-pointer lg:hidden">
+                        <div className="dropdown dropdown-left lg:hidden">
+                            <div tabIndex={0} role="button" className="cursor-pointer">
                                 <MdMenu size={35} />
                             </div>
                             <ul
@@ -78,6 +130,36 @@ const Navbar = () => {
                                         </Link>
                                     </li>
                                 ))}
+                                {user && (
+                                    <>
+                                        <li>
+                                            <Link href="/dashboard" className="flex items-center gap-2 px-2 py-1 hover:text-blue-500 transition-colors duration-300">
+                                                <MdDashboard size={20} />
+                                                ড্যাশবোর্ড
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="/dashboard/profile" className="flex items-center gap-2 px-2 py-1 hover:text-blue-500 transition-colors duration-300">
+                                                <MdPerson size={20} />
+                                                প্রোফাইল
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <button onClick={handleLogout} className="flex items-center w-full text-left gap-2 px-2 py-1 hover:text-blue-500 transition-colors duration-300">
+                                                <MdLogout size={20} />
+                                                লগআউট
+                                            </button>
+                                        </li>
+                                    </>
+                                )}
+                                {!user && (
+                                    <li>
+                                        <Link href="/login" className="flex items-center gap-2 px-2 py-1 hover:text-blue-500 transition-colors duration-300">
+                                            <MdLogin size={20} />
+                                            লগইন
+                                        </Link>
+                                    </li>
+                                )}
                             </ul>
                         </div>
                     </div>
