@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 const HomepageCarousel = () => {
     const swiperModules = [Autoplay, Pagination];
     
-    // ক্যারোসেলের জন্য ছবির URL
+    
     const carouselImages = [
         "https://scontent.fcla7-1.fna.fbcdn.net/v/t39.30808-6/502587142_9931523800260626_7012699636374275548_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=cf85f3&_nc_eui2=AeGoCzKN1cOix9cD15yO7-CBiIMXpw63YciIgxenDrdhyJJrW1q6ncWbfd9UnUa0GGd8QwPyRa0mUY07P2EGr43C&_nc_ohc=hsNKLZrBfz4Q7kNvwEK-O6U&_nc_oc=Adkh73ZB0Qc6Hfe7ez365iPR99V86bqHBjGtQWnrmlyNht2YFdnt0upsEr2qFKq5tyU&_nc_zt=23&_nc_ht=scontent.fcla7-1.fna&_nc_gid=9ZAfnfjXW224vTME586dwA&oh=00_AfSFm00nEe83aRPZMVsa1q8odIUMA4GOJNKq02ibsxdaeA&oe=68942EE7",
         "https://scontent.fcla7-1.fna.fbcdn.net/v/t39.30808-6/502729673_9931523960260610_2589370528712807362_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeGp9AkThHuJQWzts8cwtDRYmkcPJp8tx1eaRw8mny3HV2_clEllYKDl5wC_9mMx2VSAO1VgkIlbvW7CIlSDiemx&_nc_ohc=8XWIlaKe7_sQ7kNvwHJ4Ble&_nc_oc=AdmKRDmfQ6YbLPvfaeYL6QhpJF7Z7rrc2oLh_gWraEDCnEe7lAqdwSMRnTOkNeILXSs&_nc_zt=23&_nc_ht=scontent.fcla7-1.fna&_nc_gid=1i8Hxap4yMv5TNEHhjEXHA&oh=00_AfTcgcs_4URxtqqwYwtjiIDxvdNKj1jpYy4QE0G9zyzUIQ&oe=6894263B",
@@ -31,7 +31,7 @@ const HomepageCarousel = () => {
                     <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm mb-2 md:mb-4">
                         {content}
                     </p>
-                    {/* বাটনে ক্লিক করলে মোডাল খোলার জন্য ডেইজিইউআই এর মেথড ব্যবহার করা হয়েছে */}
+                    
                     <button
                         className="text-blue-600 hover:underline dark:text-blue-400"
                         onClick={() => document.getElementById(modalId).showModal()}
@@ -40,7 +40,7 @@ const HomepageCarousel = () => {
                     </button>
                 </div>
                 
-                {/* ডেইজিইউআই মোডাল কম্পোনেন্ট */}
+                {/* modal */}
                 <dialog id={modalId} className="modal">
                     <div className="modal-box bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl ">
                         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{title}</h2>
@@ -64,7 +64,7 @@ const HomepageCarousel = () => {
 
     return (
         <div className=" px-4 py-8">
-            {/* মোবাইল ডিভাইসের জন্য লেআউট (Swiper উপরে, তারপর দুটি কলাম) */}
+            
             <div className="flex flex-col gap-4 lg:hidden">
                 <div className="w-full rounded-xl overflow-hidden shadow-lg">
                     <Swiper
@@ -72,7 +72,7 @@ const HomepageCarousel = () => {
                         spaceBetween={0}
                         loop={true}
                         autoplay={{ delay: 5000, disableOnInteraction: false }}
-                        pagination={{ clickable: true }}
+                        
                         modules={swiperModules}
                         className="mySwiper "
                     >
