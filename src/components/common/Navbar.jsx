@@ -13,6 +13,7 @@ import { MdMenu, MdHome, MdNotifications, MdCreate, MdVideoLibrary, MdDashboard,
 // Assuming you have these image paths correct
 import ProfilePic from '../../app/assists/Profile.png';
 import Banner1 from '../../app/assists/balshid high school banner.jpeg';
+import NoticeMarquee from '../NoticeMarquee';
 
 const Navbar = () => {
     const { user, loading, logout } = useAuth();
@@ -164,6 +165,7 @@ const Navbar = () => {
                         </div>
                     </div>
                 </nav>
+                <NoticeMarquee />
             </div>
         </>
     );
